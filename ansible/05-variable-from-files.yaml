@@ -5,5 +5,5 @@
 
   tasks:
   - name: check variables
-    ansible.built.debug:
+    ansible.builtin.debug:
      msg: "Hai , iam learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
