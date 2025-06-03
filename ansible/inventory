@@ -1,3 +1,14 @@
 [web]
 
 3.82.235.186
+
+[localhost]
+localhost
+
+
+[localhost:vars]
+
+Course="DevOps"
+Trainer="Sivakumar"
+Duration="110HRS"
+
