@@ -3,7 +3,7 @@
   vars_files:
   - variables.yaml
 
-  taks:
+  tasks:
   - name: check variables
     ansible.built.debug:
      msg: "Hai , iam learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
