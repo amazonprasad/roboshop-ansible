@@ -1,9 +1,9 @@
--name: variables from files
-hosts: localhost
-vars_files:
+- name: variables from files
+  hosts: localhost
+  vars_files:
   - variables.yaml
 
-taks:
-- name: check variables
-  ansible.built.debug:
-    msg: "Hai , iam learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
+  taks:
+  - name: check variables
+    ansible.built.debug:
+     msg: "Hai , iam learning {{Course}}, Trainer is {{Trainer}}, Duration is {{Duration}}"
