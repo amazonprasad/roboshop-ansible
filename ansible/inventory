@@ -2,8 +2,6 @@
 localhost ansible_connection=local
 
 [local:vars]
-Course="DevOps From inventory"
-Trainer="Sivakumar"
+Course="DevOps"
+Trainer="muniprasad"
 Duration="110HRS"
-PERSON="Siva from inventory"
-WISHES="Morning from inventory"
