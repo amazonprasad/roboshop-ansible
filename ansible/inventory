@@ -1,6 +1,4 @@
-[web]
 
-3.82.235.186
 
 [localhost]
 localhost
@@ -10,5 +8,8 @@ localhost
 
 PERSON="Muniprasad"
 WISHES="Goodmorning"
+
+
+
 
 
