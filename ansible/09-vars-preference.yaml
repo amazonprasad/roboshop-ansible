@@ -1,17 +1,17 @@
 - name: variables from play level
   hosts: localhost
-  vars:
-    PERSON: "Muniprasad from play-1"
-    WISHES: "Good Morning from play-1"
   vars_files:
   - variable.yaml
-  vars_promvars_prompt:
-  - name: USERNAME
+  vars_prompt:
+  - name: PERSON
     prompt: please enter your USERNAME
     private: false # user can see what they are entering
-  - name: PASSWORD
+  - name: WISHES
     prompt: please enter your PASSWORD
     private: true # user can't see what they are entering
+  vars:
+    PERSON: "Muniprasad from play"
+    WISHES: "Good Morning from play"
   tasks:
   - name: check variables
     vars:
