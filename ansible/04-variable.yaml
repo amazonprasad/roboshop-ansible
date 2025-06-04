@@ -4,6 +4,8 @@
     Course: "DevOPs"
     Trainer: "Sivakumar"
     Duration: 110HRS
+    Name: "PERSON"
+    WISHES: "WISHES"
   tasks: 
   - name: check variables 
     vars: #task level
