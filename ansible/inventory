@@ -8,9 +8,6 @@ localhost
 
 [localhost:vars]
 
-Course="DevOps"
-Trainer="Muniprasad"
-Duration="110HRS"
 PERSON="Muniprasad"
 WISHES="Goodmorning"
 
