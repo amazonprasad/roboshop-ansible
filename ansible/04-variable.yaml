@@ -4,11 +4,9 @@
     Course: "DevOPs"
     Trainer: "Sivakumar"
     Duration: 110HRS
-    Name: "PERSON"
-    WISHES: "WISHES"
   tasks: 
-  # - name: check variables 
-  #   vars: #task level
-  #    Course: "DevOps with Aws"
+  - name: check variables 
+    vars: #task level
+      Course: "DevOps with Aws"
     ansible.builtin.debug:
      msg: "Hai, iam learning {{PERSON}}, Trainer {{WISHES}}"
