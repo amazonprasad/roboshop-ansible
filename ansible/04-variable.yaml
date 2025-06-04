@@ -1,5 +1,5 @@
 - name: variables from PLAY level
-  hosts: local
+  hosts: localhost
   vars:
     Course: "DevOPs"
     Trainer: "Sivakumar"
