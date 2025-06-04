@@ -1,12 +1,10 @@
+[localhost]
+localhost
 
-[local]
-localhost ansible_connection=local
-
-
-PERSON="Muniprasad"
-WISHES="Goodmorning"
-
-
-
-
+[localhost:vars]
+Course="DevOps From inventory"
+Trainer="Sivakumar"
+Duration="110HRS"
+PERSON="Siva from inventory"
+WISHES="Morning from inventory"
 
