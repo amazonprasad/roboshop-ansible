@@ -1,10 +1,7 @@
 
+[local]
+localhost ansible_connection=local
 
-[localhost]
-localhost
-
-
-[localhost:vars]
 
 PERSON="Muniprasad"
 WISHES="Goodmorning"
