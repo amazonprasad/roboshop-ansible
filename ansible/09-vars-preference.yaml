@@ -20,3 +20,7 @@
       WISHES: "Good Morning from Task"
     ansible.builtin.debug:
      msg: "Hai {{PERSON}}, {{WISHES}}"
+
+
+     #CMD
+     
