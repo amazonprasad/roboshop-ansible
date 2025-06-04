@@ -1,5 +1,5 @@
 - name: variables from play level
-  hosts: local
+  hosts: localhost
   become: yes
   # vars_files:
   # - variable.yaml
@@ -10,9 +10,9 @@
   # - name: WISHES
   #   prompt: please enter your WISHES
   #   private: true # user can't see what they are entering
-  vars:
-    Name: "PERSON"
-    WISHES: "WISHES"
+  # vars:
+  #   Name: "PERSON"
+  #   WISHES: "WISHES"
   #   PERSON: "Muniprasad from play"
   #   WISHES: "Good Morning from play"
   tasks:
