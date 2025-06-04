@@ -1,5 +1,6 @@
-[localhost]
-localhost 
+[local]
+localhost ansible_connection=local
+
 
 [localhost:vars]
 Course="DevOps From inventory"
