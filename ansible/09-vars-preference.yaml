@@ -3,13 +3,13 @@
   become: yes
   vars_files:
   - variable.yaml
-  vars_prompt:
-  - name: PERSON
-    prompt: please enter your PERSON
-    private: false # user can see what they are entering
-  - name: WISHES
-    prompt: please enter your WISHES
-    private: true # user can't see what they are entering
+  # vars_prompt:
+  # - name: PERSON
+  #   prompt: please enter your PERSON
+  #   private: false # user can see what they are entering
+  # - name: WISHES
+  #   prompt: please enter your WISHES
+  #   private: true # user can't see what they are entering
   vars:
     PERSON: "Muniprasad from play"
     WISHES: "Good Morning from play"
