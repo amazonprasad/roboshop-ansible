@@ -1,9 +1,8 @@
 - name: variables from play level
   hosts: local
   become: yes
-  vars:
-  # vars_files:
-  # - variable.yaml
+  vars_files:
+  - variable.yaml
   # vars_prompt:
   # - name: PERSON
   #   prompt: please enter your PERSON
