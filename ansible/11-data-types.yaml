@@ -8,25 +8,25 @@
     - Docker
     - Kubernetes
     Experience: #Experience is map type. it contains key value pairs
-     DevOPs: 3
+     DevOps: 3
      Aws: 3
      Docker: 3
     Trainer: True # boolean
     tasks:
     - name: print the key value pairs
       ansible.builtin.debug:
-        msg: "Hai, {{NAME}}"
+        msg: "Hai: {{NAME}}"
 
     - name: print the list
       ansible.builtin.debug:
-        msg: "Skills, {{Skills}}"
+        msg: "Skills: {{Skills}}"
 
     - name: print the map 
       ansible.builtin.debug:
-        msg: "Experience, {{Experience}}"
-        
+        msg: "Experience: {{Experience}}"
+
     - name: print the boolean
       ansible.builtin.debug:
-        msg: "He is a Trainer,{Trainer}"
+        msg: "He is a Trainer:{Trainer}"
 
     
