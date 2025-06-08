@@ -42,7 +42,7 @@
 
   - name: load service
     ansible.builtin.systemd_service:
-      deamon_reload: true
+      daemon_reload: true
 
   - name: start and enabled service
     ansible.builtin.service:
@@ -60,5 +60,5 @@
       name: mongodb-org-shell 
       state: present
 
-  - name: load catalogue date
+  - name: load catalogue data
     ansible.builtin.command: mongo --host mongodb.manacars.shop  < /app/schema/catalogue.js
