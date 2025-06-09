@@ -24,9 +24,10 @@
   
   - name: unarchive directory
     ansible.builtin.unarchive:
-    src: /tmp
-    dest: /usr/share/nginx/html
-    remote_src: yes
+      name: frontend.zip
+      src: /tmp
+      dest: /usr/share/nginx/html
+      remote_src: yes
 
   - name: copy file 
     ansible:builtin.copy:
