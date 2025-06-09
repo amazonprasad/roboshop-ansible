@@ -24,8 +24,7 @@
   
   - name: unarchive directory
     ansible.builtin.unarchive:
-      name: frontend.zip
-      src: /tmp
+      src: /tmp/web.zip
       dest: /usr/share/nginx/html
       remote_src: yes
 
