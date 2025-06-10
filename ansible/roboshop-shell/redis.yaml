@@ -1,5 +1,5 @@
 - name: install redis component
-  hosts: web
+  hosts: redis
   become: yes
   tasks:
   - name: install redis release
