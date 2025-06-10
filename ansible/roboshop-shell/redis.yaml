@@ -2,34 +2,6 @@
   hosts: redis
   become: yes
   tasks:
-  - name: Clean all dnf metadata
-    ansible.builtin.command: dnf clean all
-
-  # - name: Update dnf cache
-  #   ansible.builtin.dnf:
-  #     update_cache: 
-  
-  # - name: Install compatible remi-release for EL8
-  #   ansible.builtin.dnf:
-  #    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-  #    state: present
-
-
-  # - name: install remi release
-  #   ansible.builtin.dnf: # check pacakge will work not
-  #     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-  #     state: present
-  #     disable_gpg_check: true
-  
-  # - name: enable redis
-  #   ansible.builtin.command: dnf module enable redis:remi-6.2 -y
-
-  ---
-- name: Setup Redis 6.2 from Remi Repo on EL8
-  hosts: redis
-  become: yes
-
-  tasks:
     - name: Install Remi repository (EL8)
       ansible.builtin.dnf:
         name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
@@ -51,19 +23,7 @@
         name: redis
         state: started
         enabled: true
-
-    # - name: Disable default Redis module
-    #   ansible.builtin.shell: dnf module disable redis -y
-
-  # - name: Enable Remi Redis 6.2 module
-  #   ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
-
-
-  # - name: install redis
-  #   ansible.builtin.dnf:
-  #     name: redis
-  #     state: present
-
+        
     - name: allow remote connections
       ansible.builtin.replace:
        path: /etc/redis/redis.conf
