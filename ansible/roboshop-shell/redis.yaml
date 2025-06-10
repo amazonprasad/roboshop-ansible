@@ -2,6 +2,13 @@
   hosts: redis
   become: yes
   tasks:
+  - name: Clean all dnf metadata
+    ansible.builtin.command: dnf clean all
+
+  - name: Update dnf cache
+    ansible.builtin.dnf:
+      update_cache: yes
+
   - name: install remi release
     ansible.builtin.dnf: # check pacakge will work not
       name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
