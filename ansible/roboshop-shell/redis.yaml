@@ -9,10 +9,10 @@
   #   ansible.builtin.dnf:
   #     update_cache: 
   
-  - name: Install compatible remi-release for EL8
-    ansible.builtin.dnf:
-     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-     state: present
+  # - name: Install compatible remi-release for EL8
+  #   ansible.builtin.dnf:
+  #    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+  #    state: present
 
 
   # - name: install remi release
@@ -24,26 +24,54 @@
   # - name: enable redis
   #   ansible.builtin.command: dnf module enable redis:remi-6.2 -y
 
-  - name: Disable default Redis module
-    ansible.builtin.shell: dnf module disable redis -y
+  ---
+- name: Setup Redis 6.2 from Remi Repo on EL8
+  hosts: redis
+  become: yes
 
-  - name: Enable Remi Redis 6.2 module
-    ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+  tasks:
+    - name: Install Remi repository (EL8)
+      ansible.builtin.dnf:
+        name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+        state: present
+
+    - name: Disable default Redis module
+      ansible.builtin.shell: dnf module disable redis -y
+
+    - name: Enable Redis 6.2 module from Remi
+      ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
+
+    - name: Install Redis
+      ansible.builtin.dnf:
+        name: redis
+        state: present
+
+    - name: Enable and start Redis
+      ansible.builtin.service:
+        name: redis
+        state: started
+        enabled: true
+
+    # - name: Disable default Redis module
+    #   ansible.builtin.shell: dnf module disable redis -y
+
+  # - name: Enable Remi Redis 6.2 module
+  #   ansible.builtin.shell: dnf module enable redis:remi-6.2 -y
 
 
-  - name: install redis
-    ansible.builtin.dnf:
-      name: redis
-      state: present
+  # - name: install redis
+  #   ansible.builtin.dnf:
+  #     name: redis
+  #     state: present
 
-  - name: allow remote connections
-    ansible.builtin.replace:
-      path: /etc/redis/redis.conf
-      regexp: '127.0.0.1'
-      replace: '0.0.0.0'
+    - name: allow remote connections
+      ansible.builtin.replace:
+       path: /etc/redis/redis.conf
+       regexp: '127.0.0.1'
+       replace: '0.0.0.0'
 
-  - name: start and enable redis
-    ansible.builtin.service:
-      name: redis
-      state: restarted
-      enabled: yes
+    - name: start and enable redis
+      ansible.builtin.service:
+       name: redis
+       state: restarted
+       enabled: yes
