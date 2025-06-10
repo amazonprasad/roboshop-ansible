@@ -3,7 +3,7 @@
   become: yes
   tasks:
   - name: install redis release
-    ansible.builtin.dnf: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.6.rpm -y
+    ansible.builtin.command: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.6.rpm -y
 
   - name: Reset default Redis module
     ansible.builtin.command: dnf module reset redis -y
