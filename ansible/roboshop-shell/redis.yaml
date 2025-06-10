@@ -2,18 +2,19 @@
   hosts: redis
   become: yes
   tasks:
-  
-  - name: Disable default Redis module
-    ansible.builtin.command: dnf module disable redis -y
+  - name: install redis release
+    ansible.builtin.dnf: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.6.rpm -y
 
-  - name: Ensure Redis module is enabled from AppStream
-    ansible.builtin.command: dnf module enable redis -y
+  - name: Reset default Redis module
+    ansible.builtin.command: dnf module reset redis -y
 
+  - name: Enable default Redis module
+    ansible.builtin.command: dnf module enable redis:remi-6.2 -y
+    
   - name: Install Redis
     ansible.builtin.package:
      name: redis
      state: present
-
 
   - name: allow remote connections
     ansible.builtin.replace:
