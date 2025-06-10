@@ -6,14 +6,14 @@
   - name: Disable default Redis module
     ansible.builtin.command: dnf module disable redis -y
 
-  - name: Enable Redis 6.2 module from Remi repo
-    ansible.builtin.command: dnf module enable redis:remi-6.2 -y
+  - name: Ensure Redis module is enabled from AppStream
+    ansible.builtin.command: dnf module enable redis -y
 
+  - name: Install Redis
+    ansible.builtin.package:
+     name: redis
+     state: present
 
-  - name: install redis
-    ansible.builtin.dnf:
-      name: redis
-      state: present
 
   - name: allow remote connections
     ansible.builtin.replace:
