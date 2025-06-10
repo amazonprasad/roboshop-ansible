@@ -5,9 +5,9 @@
   - name: Clean all dnf metadata
     ansible.builtin.command: dnf clean all
 
-  - name: Update dnf cache
-    ansible.builtin.dnf:
-      update_cache: 
+  # - name: Update dnf cache
+  #   ansible.builtin.dnf:
+  #     update_cache: 
   
   - name: Install compatible remi-release for EL8
     ansible.builtin.dnf:
