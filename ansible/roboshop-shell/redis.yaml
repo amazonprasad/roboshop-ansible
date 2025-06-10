@@ -2,12 +2,28 @@
   hosts: redis
   become: yes
   tasks:
-  - name: Download compatible remi-release RPM
-    ansible.builtin.get_url:
-     url: https://rpms.remirepo.net/enterprise/8/remi/x86_64/remi-release-8.5-1.el8.remi.noarch.rpm
-     dest: /tmp/remi-release.rpm
+  # - name: install remi release
+  #   ansible.builtin.dnf: # check pacakge will work not
+  #     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+  #     state: present
+  #     disable_gpg_check: true
+  
+  - name: enable redis
+    ansible.builtin.command: dnf module enable redis:remi-6.2 -y
 
-  - name: Install remi-release from RPM
+  - name: install redis
     ansible.builtin.dnf:
-     name: /tmp/remi-release.rpm
-     state: present
+      name: redis
+      state: present
+
+  - name: allow remote connections
+    ansible.builtin.replace:
+      path: /etc/redis/redis.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+
+  - name: start and enable redis
+    ansible.builtin.service:
+      name: redis
+      state: restarted
+      enabled: yes
