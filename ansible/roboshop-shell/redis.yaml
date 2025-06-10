@@ -7,13 +7,19 @@
 
   - name: Update dnf cache
     ansible.builtin.dnf:
-      update_cache: yes
+      update_cache: 
+  
+  - name: Install compatible remi-release for EL8
+    ansible.builtin.dnf:
+     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+     state: present
 
-  - name: install remi release
-    ansible.builtin.dnf: # check pacakge will work not
-      name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
-      state: present
-      disable_gpg_check: true
+
+  # - name: install remi release
+  #   ansible.builtin.dnf: # check pacakge will work not
+  #     name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+  #     state: present
+  #     disable_gpg_check: true
   
   # - name: enable redis
   #   ansible.builtin.command: dnf module enable redis:remi-6.2 -y
