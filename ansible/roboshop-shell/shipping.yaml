@@ -59,9 +59,9 @@
       name: mysql
       state: present
 
-  # - name: check cities schema exists or not
-  #   ansible.builtin.command:  mysql -h mysql.manacars.shop -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
-  #   register: schema
+  - name: check cities schema exists or not
+    ansible.builtin.command:  mysql -h mysql.manacars.shop -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
+    register: schema
 
   # - name: print output
   #   ansible.builtin.debug:
@@ -71,8 +71,8 @@
   #   ansible.builtin.shell: "mysql -h mysql.manacars.shop -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
   #   when: schema.stdout != "1"
 
-  # - name: start and enable shipping
-  #   ansible.builtin.service:
-  #     name: shipping
-  #     state: restarted
-  #     enabled: yes
+  - name: start and enable shipping
+    ansible.builtin.service:
+      name: shipping
+      state: restarted
+      enabled: yes
