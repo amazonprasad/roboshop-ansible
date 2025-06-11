@@ -67,6 +67,21 @@
     ansible.builtin.debug:
       msg: "schema output: {{schema}}"
 
+  - name: Create /app/schema directory
+      file:
+        path: /app/schema
+        state: directory
+        mode: '0755'
+
+  - name: Copy shipping.sql
+    copy:
+        src: schema/shipping.sql
+        dest: /app/schema/shipping.sql
+        mode: '0644'
+
+  - name: Load cities data into MySQL
+    shell: mysql -h mysql.manacars.shop -uroot -pRoboShop@1 < /app/schema/shipping.sql
+
   - name: load cities data
     ansible.builtin.shell: "mysql -h mysql.manacars.shop -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
     when: schema.stdout != "1"
