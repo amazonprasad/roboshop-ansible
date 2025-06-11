@@ -1,4 +1,3 @@
-
 - name: cart
   hosts: cart
   become: yes
