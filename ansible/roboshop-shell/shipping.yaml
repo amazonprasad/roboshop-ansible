@@ -68,7 +68,7 @@
       msg: "schema output: {{schema}}"
 
   - name: Create /app/schema directory
-      file:
+    file:
         path: /app/schema
         state: directory
         mode: '0755'
