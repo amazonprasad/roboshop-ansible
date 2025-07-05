@@ -63,6 +63,10 @@
     ansible.builtin.command:  mysql -h mysql.manacars.shop -uroot -p{{mysql_password}} -sN -e "SELECT COUNT(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'cities'"
     register: schema
 
+  - name: print output
+    ansible.builtin.debug:
+      msg: "schema output: {{schema}}"
+
   - name: start and enable shipping
     ansible.builtin.service:
       name: shipping
