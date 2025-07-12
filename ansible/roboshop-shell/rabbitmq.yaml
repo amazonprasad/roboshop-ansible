@@ -18,7 +18,7 @@
       name: rabbitmq-server
       state: restarted
       enabled: yes
-      ignore_errors: true
+    ignore_errors: true
 
   - name: create rabbitmq user
     ansible.builtin.command: rabbitmqctl add_user roboshop roboshop123
