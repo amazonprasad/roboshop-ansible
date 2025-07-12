@@ -72,7 +72,7 @@
 
   - name: load cities data
     ansible.builtin.shell: "mysql -h mysql.manacars.shop -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
-    
+    ignore_errors: true
 
   - name: start and enable shipping
     ansible.builtin.service:
