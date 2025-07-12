@@ -28,7 +28,16 @@
     ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
       dest: /tmp
+  - name: Debug if shipping.sql exists
+    ansible.builtin.stat:
+      path: /app/schema/shipping.sql
+    register: shipping_sql_file
 
+  - name: Print status of shipping.sql
+    ansible.builtin.debug:
+      var: shipping_sql_file.stat.exists
+
+    
   - name: extract shipping application
     ansible.builtin.unarchive:
        src: /tmp/shipping.zip
