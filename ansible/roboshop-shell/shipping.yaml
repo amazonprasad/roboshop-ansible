@@ -43,7 +43,7 @@
        src: /tmp/shipping.zip
        dest: /app
        remote_src: yes
-
+  
   - name: install dependencies
     ansible.builtin.command: mvn clean package
     args:
@@ -68,8 +68,6 @@
       name: mysql
       state: present
   
- 
-
   - name: load cities data
     ansible.builtin.shell: "mysql -h mysql.manacars.shop -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
     ignore_errors: true
